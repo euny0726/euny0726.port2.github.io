@@ -1,0 +1,144 @@
+@charset "utf-8";
+/* CSS Document */
+
+ *{margin: 0; padding: 0; } /* 플렉스 사용하려면 마진 오토 제거해야 함 */
+a{text-decoration: none; color: inherit;}
+li{list-style: none;}
+
+@font-face {
+    font-family: 'Recipekorea';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Recipekorea.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+*{font-family: "Noto Sans KR";}
+
+#sidefx{position: fixed; right: 60px; bottom: 50%;  z-index: 9999999;}
+#sidefx img{}
+#sidefx .button_sidefx{}
+#sidefx .button_sidefx span{display: block; width: 21px; height: 2px; position: absolute; top: 10px; right: -30px; background: #888888; cursor: pointer;}
+#sidefx .button_sidefx span:nth-of-type(1){transform: rotate(45deg);}
+#sidefx .button_sidefx span:nth-of-type(2){ transform: rotate(-45deg);}
+@media all and (max-width:1024px){
+    #sidefx{bottom: 0; right: 0;}
+    #sidefx img{width: 100px;}
+    #sidefx .button_sidefx{}
+    #sidefx .button_sidefx span{width: 15px; top:-20px; right: 0;}
+}
+
+#wrap{width: 100%; height: 125px; box-sizing: border-box; border-bottom: 1px solid #ddd; border-top: 5px solid #D13238; }
+#header{display: flex; justify-content: space-between; max-width: 1400px; height: 125px; margin: 0 auto;}
+#header h1{padding: 40px 0 0 0;}
+#header h1 a{}
+#header h1 a img{width: 260px;}
+
+#header .nav_P{}
+#header .nav_P>ul{display: flex;}
+#header .nav_P>ul>li{}
+#header .nav_P>ul>li>a{display: block; color: #333333; margin-left: 90px; padding: 45.5px 0; font-size: 1.25rem; font-weight:bold;  position: relative;}
+
+#header .nav_P .submenu{display: none; position: relative; z-index: 9999;}
+#header .nav_P .submenu>li{height: 40px; line-height: 40px; font-size: 1rem; color: #555555; text-align: right;}
+#header .nav_P .submenu>li:hover{text-decoration: underline;}
+#header .nav_P .submenu>li>a{}
+#header .nav_P .sub_bg{width: 100%; height: 200px; position: absolute; left: 0; top: 125px; z-index: 5; background:rgba(255,255,255,0.70)}
+
+
+#header .button_M{display: none;}
+#header p.bg{display: none;}
+#header ul.nav_M{display: none; }
+
+        @media all and (max-width:1024px){
+            
+            #wrap{height:60px; border-top: none;}
+            #header .nav_P{display: none;}
+            #header{display: flex;justify-content: space-between; width: 100%; height:60px; border-bottom: solid 1px #ddd; background: #fff; position: fixed; z-index: 9999999;}
+            #header h1{padding: 20px 0 0 20px;}
+            #header h1 a img{width: 160px;}
+            
+            #header .button_M{display: block; width: 20px; height: 16px; margin: 20px 20px 0 0; position: relative; cursor: pointer;}
+            #header .button_M span{display: block; width: 21px; height: 2px; position: absolute; left: 0; background: #D3313A; transition: 0.3s;}
+            #header .button_M span:nth-of-type(1){top: 0;}
+            #header .button_M span:nth-of-type(2){top: 7px;}
+            #header .button_M span:nth-of-type(3){bottom: 0;}
+            
+            #header .button_M span:nth-of-type(1).on{left: 24px; top: 2px; transform: rotate(135deg); transform-origin: left top;}/*135도 돌리겟*/
+            #header .button_M span:nth-of-type(2).on{transform: scaleX(0);}/*안보이게*/
+            #header .button_M span:nth-of-type(3).on{left: 22px; bottom: -3px; transform: rotate(-135deg); transform-origin: left top;}/*-135도 돌리게*/
+            
+            #header p.bg{display: none; width: 100vw; height: calc(100vh - 60px); position: fixed; left: 0; top: 61px; background: rgba(0,0,0,0.3); z-index: 999;}
+            
+            #header ul.nav_M{display: block; width: 60vw; height: calc(100vh - 60px); position: fixed; right: -95vw; top: 61px; background: #FFF; transition: 0.4s; z-index: 99998;}/*calc (화면전체 -70px(헤더),-70vw로 안보이게 했다가 .on에 right 0 을 넣어서 보이게함 */
+            
+            #header ul.nav_M.on{right: 0;}
+            #header ul.nav_M li{}
+            
+            #header ul.nav_M>li>a{display: block; padding: 15px; color: #000; font-size: 17px; border-bottom: 1px solid #ddd; position: relative;}/* 패딩으로 서브메뉴 크기 맞춤. */
+			#header ul.nav_M>li>a::after{content: ""; background: url("images/submenu/down-arrow.png") no-repeat center top; background-size: 15px 15px; width: 15px; height: 15px; position: absolute; top:20px; right: 20px;}
+            #header ul.nav_M>li>a.m2::after{content: ""; background: url("images/submenu/up-arrow.png") no-repeat center top; background-size: 15px 15px; width: 15px; height: 15px; position: absolute; top:20px; right: 20px;}
+
+            #header ul.nav_M>li:last-of-type>a{border-bottom:none;}
+           
+
+            #header .nav_M li ul{display:none;}
+            #header .nav_M li ul li{padding: 15px; color:#555555; background: #F2F2F2;}
+            #header .nav_M li ul li a{padding: 15px;}
+
+            #header .nav_M li a.on{background: #D3313A; color:#fff;}
+           
+        }
+
+
+
+
+
+
+/* 푸터영역 */
+#footer{clear: both;width: 100%; height: 280px; position: relative; border-top: 1px solid #ddd;}
+#footer .inner{display: flex; height: 280px; justify-content: flex-start; max-width: 1400px; margin: 0 auto; padding: 30px 10px; box-sizing: border-box;}
+#footer .inner h1{width: 20%; margin-right:50px;}
+#footer .inner h1 a{}
+#footer .inner h1 a img{width: 200px;} 
+#footer .inner button{border: none; background: none;}
+#footer .inner .topPC{display: none; position: fixed; right: 30px; bottom:200px;}
+#footer .inner .right{width: 60%;}
+#footer .inner .text1{display: flex; justify-content:flex-start; width: 100%; margin: 15px 0; font-size: 1rem;}
+#footer .inner .text1 li{}
+#footer .inner .text1 li:nth-of-type(1){color: #D3313A;}
+#footer .inner .text1 li::after{content: "｜"; padding: 0 9px; color: #ddd;}
+#footer .inner .text1 li:nth-of-type(1)::after{content: "｜"; padding: 0 9px; color: #ddd;}
+#footer .inner .text1 li:last-of-type::after{content: ""; padding: 0;}
+#footer .inner .adress{width: 100%; }
+#footer .inner .adress li{float: left; font-size: 0.8rem;}
+#footer .inner .adress li::before{content: "·"; padding: 0 10px;}
+#footer .inner .adress li:last-of-type::before{content: "·"; padding: 0 10px;}
+#footer .inner .copyright{clear: both; padding-top: 10px;}
+#footer .inner .copyright p{font-size: 0.8rem;}
+
+#footer .inner .topPC{}
+#footer .inner .topM{display: none;}
+   
+    @media all and (max-width: 1200px) {
+        #footer{font-size: 13px;}
+		#footer{height: auto;}
+        #footer .inner{display: block; height: auto; padding: 10px 0;}
+		#footer .inner h1{width: 100%; margin-right:0; padding: 15px}
+		#footer .inner h1 a img{width: 120px;}
+        #footer .inner button{}
+        #footer .inner .topPC{display: none;}
+        #footer .inner .topM{display: block; position: absolute; right: 15px; top:0;}
+        #footer .inner .topM img{width: 27px; margin-top: 22px;}
+		#footer .inner .right{width: 100%;}
+        #footer .inner .warp{border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;}
+		#footer .inner .text1{justify-content:flex-start; flex-flow: row wrap; width: 70%; padding: 0 15px;}
+		#footer .inner .text1 li{line-height: 2;}
+		#footer .inner .text1 li::after{content: "｜"; padding:0 1vw;}
+		#footer .inner .text1 li:nth-of-type(3)::after{content: ""; padding: 0}
+        #footer .inner .adress{padding: 15px;}
+        #footer .inner .adress li{padding-right: 1vw;}
+        #footer .inner .adress li::before{display: none;}
+        #footer .inner .copyright{clear: both; line-height: 2; padding:0 15px;}
+    }
+
